@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <p id="writing"></p>
+        
+        <form>
+            <input name="text" type="text">
+            <input type="submit" value="Add Text">
+        </form>
+        <script>
+            const form=document.querySelector("form");
+            const input=document.querySelector("[name='text']");
+            const writing=document.getElementById("writing");
+            const writingData=[]
+            
+            function addText(writingText) {
+                writingData.push(writingText);
+                const li=document.createElement("li")
+                li.innerHTML=writingText;
+                writing.appendChild(li);
+            }
+            
+            form.onsubmit=(event)=>{
+                event.preventDefault();
+                addText(input.value);
+            }
+        </script>
+    </body>
+</html>
